@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaTools } from 'react-icons/fa';
+import Tilt from 'react-parallax-tilt';
 
 const Projects = () => {
 
@@ -42,44 +43,45 @@ const Projects = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2 }}
-                            className="group relative bg-dark rounded-2xl border border-gray-800 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 flex flex-col"
-                        >
-                            {/* Top Image Placeholder Area */}
-                            <div className="h-40 bg-gray-900 w-full flex items-center justify-center relative overflow-hidden border-b border-gray-800">
-                                <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
-                                <FaTools className="text-4xl text-gray-700 group-hover:text-primary/50 transition-colors" />
-                            </div>
-
-                            <div className="p-8 relative flex-1 flex flex-col">
-                                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors">{project.title}</h3>
-                                <p className="text-gray-400 mb-6 leading-relaxed flex-1 text-sm">
-                                    {project.description}
-                                </p>
-
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {project.tags.map((tag, i) => (
-                                        <span key={i} className="px-3 py-1 bg-secondary text-xs rounded-full text-gray-300 border border-gray-700">
-                                            {tag}
-                                        </span>
-                                    ))}
+                        <Tilt key={index} tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.03} transitionSpeed={2500} className="h-full">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.2 }}
+                                className="group relative bg-dark rounded-2xl border border-gray-800 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 flex flex-col h-full"
+                            >
+                                {/* Top Image Placeholder Area */}
+                                <div className="h-40 bg-gray-900 w-full flex items-center justify-center relative overflow-hidden border-b border-gray-800">
+                                    <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
+                                    <FaTools className="text-4xl text-gray-700 group-hover:text-primary/50 transition-colors" />
                                 </div>
 
-                                <div className="flex items-center gap-4 pt-4 border-t border-gray-800">
-                                    <a href={project.links.github} className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors">
-                                        <FaGithub className="text-lg" /> Code
-                                    </a>
-                                    <a href={project.links.demo} className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-primary transition-colors">
-                                        <FaExternalLinkAlt className="text-lg" /> Live Demo
-                                    </a>
+                                <div className="p-8 relative flex-1 flex flex-col">
+                                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors">{project.title}</h3>
+                                    <p className="text-gray-400 mb-6 leading-relaxed flex-1 text-sm">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-2 mb-8">
+                                        {project.tags.map((tag, i) => (
+                                            <span key={i} className="px-3 py-1 bg-secondary text-xs rounded-full text-gray-300 border border-gray-700">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex items-center gap-4 pt-4 border-t border-gray-800">
+                                        <a href={project.links.github} className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors">
+                                            <FaGithub className="text-lg" /> Code
+                                        </a>
+                                        <a href={project.links.demo} className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-primary transition-colors">
+                                            <FaExternalLinkAlt className="text-lg" /> Live Demo
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </Tilt>
                     ))}
                 </div>
             </div>

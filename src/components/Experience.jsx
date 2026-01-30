@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaUserGraduate, FaBriefcase, FaCalendarAlt, FaBuilding, FaGraduationCap } from 'react-icons/fa';
+import Tilt from 'react-parallax-tilt';
 
 const Experience = () => {
 
@@ -141,27 +142,27 @@ const Experience = () => {
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {education.map((edu, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                whileHover={{ y: -5 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="bg-gray-900/40 p-8 rounded-2xl border border-gray-800 hover:border-blue-500/30 transition-all duration-300 group"
-                            >
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
-                                        <FaGraduationCap className="text-xl" />
+                            <Tilt key={index} tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2500} className="h-full">
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="bg-gray-900/40 p-8 rounded-2xl border border-gray-800 hover:border-blue-500/30 transition-all duration-300 group h-full"
+                                >
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
+                                            <FaGraduationCap className="text-xl" />
+                                        </div>
+                                        <span className="text-xs font-mono px-3 py-1 rounded-full bg-blue-900/20 text-blue-300 border border-blue-800/30">
+                                            {edu.duration}
+                                        </span>
                                     </div>
-                                    <span className="text-xs font-mono px-3 py-1 rounded-full bg-blue-900/20 text-blue-300 border border-blue-800/30">
-                                        {edu.duration}
-                                    </span>
-                                </div>
-                                <h4 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{edu.institution}</h4>
-                                <p className="text-gray-300 font-medium mb-3">{edu.degree}</p>
-                                <p className="text-gray-500 text-sm leading-relaxed">{edu.details}</p>
-                            </motion.div>
+                                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{edu.institution}</h4>
+                                    <p className="text-gray-300 font-medium mb-3">{edu.degree}</p>
+                                    <p className="text-gray-500 text-sm leading-relaxed">{edu.details}</p>
+                                </motion.div>
+                            </Tilt>
                         ))}
                     </div>
                 </div>
@@ -194,32 +195,34 @@ const Experience = () => {
                                 {/* Dot */}
                                 <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-dark border-4 border-primary shadow-[0_0_10px_rgba(249,115,22,0.5)] z-10 box-content"></div>
 
-                                <div className="bg-gray-900/30 p-8 rounded-2xl border border-gray-800 hover:border-primary/30 transition-all duration-300 relative group overflow-hidden">
-                                    {/* Hover Shine Effect */}
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500 -translate-y-1/2 translate-x-1/2"></div>
+                                <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3} scale={1.01} transitionSpeed={2500}>
+                                    <div className="bg-gray-900/30 p-8 rounded-2xl border border-gray-800 hover:border-primary/30 transition-all duration-300 relative group overflow-hidden">
+                                        {/* Hover Shine Effect */}
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500 -translate-y-1/2 translate-x-1/2"></div>
 
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                        <h4 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
-                                            {job.role}
-                                        </h4>
-                                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider border border-primary/20 self-start md:self-auto">
-                                            <FaCalendarAlt /> {job.duration}
-                                        </span>
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                            <h4 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                                                {job.role}
+                                            </h4>
+                                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider border border-primary/20 self-start md:self-auto">
+                                                <FaCalendarAlt /> {job.duration}
+                                            </span>
+                                        </div>
+
+                                        <div className="flex items-center gap-2 text-gray-300 font-medium text-base mb-6">
+                                            <FaBuilding className="text-gray-500" /> {job.company}
+                                        </div>
+
+                                        <ul className="grid md:grid-cols-2 gap-x-8 gap-y-3">
+                                            {job.details.map((point, i) => (
+                                                <li key={i} className="flex items-start gap-3 text-gray-400 text-sm">
+                                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+                                                    <span className="leading-relaxed">{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
-
-                                    <div className="flex items-center gap-2 text-gray-300 font-medium text-base mb-6">
-                                        <FaBuilding className="text-gray-500" /> {job.company}
-                                    </div>
-
-                                    <ul className="grid md:grid-cols-2 gap-x-8 gap-y-3">
-                                        {job.details.map((point, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-gray-400 text-sm">
-                                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                                                <span className="leading-relaxed">{point}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                </Tilt>
                             </motion.div>
                         ))}
                     </div>
