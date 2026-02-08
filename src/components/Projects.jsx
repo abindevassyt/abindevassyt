@@ -49,10 +49,10 @@ const Projects = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2 }}
-                                className="group relative bg-dark rounded-2xl border border-gray-800 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 flex flex-col h-full"
+                                className="group relative bg-gray-900/40 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 flex flex-col h-full"
                             >
                                 {/* Top Image Placeholder Area */}
-                                <div className="h-40 bg-gray-900 w-full flex items-center justify-center relative overflow-hidden border-b border-gray-800">
+                                <div className="h-40 bg-white/5 w-full flex items-center justify-center relative overflow-hidden border-b border-white/10">
                                     <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
                                     <FaTools className="text-4xl text-gray-700 group-hover:text-primary/50 transition-colors" />
                                 </div>

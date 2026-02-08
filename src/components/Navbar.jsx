@@ -20,7 +20,12 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-secondary/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'}`}>
+        <nav
+            className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled
+                    ? 'bg-dark/70 backdrop-blur-lg border-b border-white/10 py-4 shadow-lg'
+                    : 'bg-transparent py-6'
+                }`}
+        >
             <div className="container mx-auto px-6 flex justify-between items-center">
                 <a href="#" className="text-2xl font-bold text-white tracking-widest uppercase">
                     Abin<span className="text-primary">.</span>

@@ -196,7 +196,7 @@ const Experience = () => {
                                 <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-dark border-4 border-primary shadow-[0_0_10px_rgba(249,115,22,0.5)] z-10 box-content"></div>
 
                                 <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3} scale={1.01} transitionSpeed={2500}>
-                                    <div className="bg-gray-900/30 p-8 rounded-2xl border border-gray-800 hover:border-primary/30 transition-all duration-300 relative group overflow-hidden">
+                                    <div className="bg-gray-900/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 relative group overflow-hidden shadow-lg">
                                         {/* Hover Shine Effect */}
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500 -translate-y-1/2 translate-x-1/2"></div>
 
