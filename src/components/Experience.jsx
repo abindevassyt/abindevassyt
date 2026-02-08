@@ -148,7 +148,7 @@ const Experience = () => {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="bg-gray-900/40 p-8 rounded-2xl border border-gray-800 hover:border-blue-500/30 transition-all duration-300 group h-full"
+                                    className="bg-gray-900/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-300 group h-full shadow-lg"
                                 >
                                     <div className="flex justify-between items-start mb-4">
                                         <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
